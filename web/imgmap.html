@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lamborghini Image Map</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        img {
+            border: 2px solid black;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #info {
+            margin: 20px auto;
+            padding: 15px;
+            width: 60%;
+            background-color: white;
+            border: 2px solid steelblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lamborghini Image Map Example</h1>
+
+    <p>Click on different parts of the car to view information.</p>
+
+    <!-- Car Image with Image Map -->
+    <img src="car.jpg"
+         alt="Blue Lamborghini sports car"
+         usemap="#carmap"
+         width="625"
+         height="320"
+         id="carImage">
+
+    <!-- Define Clickable Regions -->
+    <map name="carmap">
+
+        <!-- Circle: Front Wheel -->
+        <area shape="circle"
+              coords="315,235,40"
+              href="#"
+              alt="Front Wheel"
+              onclick="showInfo('Front Wheel',
+              'The front wheel provides steering control and helps the car maintain grip on the road.'); return false;">
+
+        <!-- Rectangle: Car Front -->
+        <area shape="rect"
+              coords="40,150,280,290"
+              href="#"
+              alt="Front of the Car"
+              onclick="showInfo('Front of the Lamborghini',
+              'The front section features an aerodynamic bumper, sharp LED headlights, and a low-profile design.'); return false;">
+
+        <!-- Polygon: Car Body -->
+        <area shape="poly"
+              coords="180,180,270,145,390,145,465,180,430,245,280,270,200,245"
+              href="#"
+              alt="Car Body"
+              onclick="showInfo('Lamborghini Car Body',
+              'The car body features a sleek aerodynamic design, sculpted side panels, and a stylish air intake.'); return false;">
+
+        <!-- Circle: Rear Wheel -->
+        <area shape="circle"
+              coords="510,225,38"
+              href="#"
+              alt="Rear Wheel"
+              onclick="showInfo('Rear Wheel',
+              'The rear wheel provides traction and supports the car during acceleration and cornering.'); return false;">
+
+        <!-- Rectangle: Rear Wing -->
+        <area shape="rect"
+              coords="430,130,560,190"
+              href="#"
+              alt="Rear Wing"
+              onclick="showInfo('Rear Wing',
+              'The rear wing helps generate aerodynamic downforce, improving stability at high speeds.'); return false;">
+
+    </map>
+
+    <!-- Information Display Section -->
+    <div id="info">
+        <h2 id="title">Car Information</h2>
+        <p id="description">
+            Click on any mapped part of the Lamborghini to see its details.
+        </p>
+    </div>
+
+    <script>
+        function showInfo(title, description) {
+            document.getElementById("title").textContent = title;
+            document.getElementById("description").textContent = description;
+        }
+    </script>
+
+</body>
+</html>
+
